@@ -22,26 +22,32 @@ class VideoListItem extends StatelessWidget {
               children: [
                 //left side
                 CircleAvatar(
-                  backgroundColor: kBlackclolr,
-                  radius: 20,
-                  child: IconButton(onPressed: (){}
-                  , icon: const Icon(Icons.volume_mute)),
+                  backgroundColor: kBlackclolr.withOpacity(0.5),
+                  radius: 25,              
+                  child: IconButton(onPressed: (){},
+                   icon: const Icon(Icons.volume_off,size:30,color: kwhitecolor,)),
                 ),
                 //right side
                 const Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    CircleAvatar(),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                      child: CircleAvatar(
+                        radius: 30,
+                        backgroundImage: NetworkImage("https://www.themoviedb.org/t/p/w300_and_h450_bestv2/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg"),
+                      ),
+                    ),
                   VideoActionsWidget(icon: Icons.emoji_emotions, title: 'LOL'),
                   VideoActionsWidget(icon: Icons.add, title: 'My List'),
                   VideoActionsWidget(icon: Icons.share, title: 'Share'),
                   VideoActionsWidget(icon: Icons.play_arrow, title: 'Play'),
                  ],
-                )
+                ),
               ],
             ),
           ),
-        )
+        ),
       ],
     );
   }
@@ -61,7 +67,7 @@ class VideoActionsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
       child: Column(
         children: [
           Icon(icon,color: kwhitecolor,),Text(title,style: const TextStyle(
